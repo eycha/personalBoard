@@ -21,10 +21,10 @@ public class BoardService {
         UUID uuid = UUID.randomUUID();
         String fileName = uuid + "_" + file.getOriginalFilename();
 
-        File saveFile = new File(projectPath, "name");
+        File saveFile = new File(projectPath, fileName);
         file.transferTo(saveFile);
         board.setFilename(fileName);
-        board.setFilepath("/files" + fileName);
+        board.setFilepath("/files/" + fileName);
         boardRepository.save(board);
 
     }
