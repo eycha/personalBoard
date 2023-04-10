@@ -19,25 +19,25 @@ import org.springframework.web.bind.annotation.*;
 class BoardApiController {
     @Autowired
     private BoardRepository repository;
+    @Autowired
+    private BoardService boardService;
 
-    @GetMapping("boards")
-    List<Board> all() {
+    @GetMapping("/boards")
+    List<Board> boardList() {
         return repository.findAll();
     }
 
-
     @PostMapping("/boards")
-    Board newBoard(@RequestBody Board newBoard) {
-        return repository.save(newBoard);
+    Board boardWrite(@RequestBody Board boardWrite) {
+        return repository.save(boardWrite);
     }
 
-    // Single item
-
     @GetMapping("/boards/{id}")
-    Board one(@PathVariable Integer id) {
+    Board boardView(@PathVariable Integer id) {
 
         return repository.findById(id).orElse(null);
     }
+
 
     @PutMapping("/boards/{id}")
     Board replaceBoard(@RequestBody Board newBoard, @PathVariable Integer id) {
