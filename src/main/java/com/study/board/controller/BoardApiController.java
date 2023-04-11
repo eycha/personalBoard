@@ -1,11 +1,12 @@
 package com.study.board.controller;
 
-import java.util.List;
 
+import java.util.List;
 import com.study.board.entity.Board;
 import com.study.board.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @RequestMapping("/api")
