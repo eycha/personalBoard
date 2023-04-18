@@ -14,6 +14,7 @@ class BoardApiController {
     @Autowired
     private BoardRepository repository;
 
+    @CrossOrigin
     @GetMapping("/boards")
     List<Board> boardList() {
         return repository.findAll();
@@ -23,12 +24,12 @@ class BoardApiController {
     Board boardWrite(@RequestBody Board boardWrite) {
         return repository.save(boardWrite);
     }
-
+    @CrossOrigin
     @GetMapping("/boards/{id}")
     Board boardView(@PathVariable Integer id) {
         return repository.findById(id).orElse(null);
     }
-
+    @CrossOrigin
     @PutMapping("/boards/{id}")
     Board replaceBoard(@RequestBody Board newBoard, @PathVariable Integer id) {
 
@@ -44,6 +45,7 @@ class BoardApiController {
                 });
     }
 
+    @CrossOrigin
     @DeleteMapping("/boards/{id}")
     void deleteBoard(@PathVariable Integer id) {
         repository.deleteById(id);
