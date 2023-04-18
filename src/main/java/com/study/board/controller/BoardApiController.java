@@ -18,8 +18,8 @@ class BoardApiController {
     List<Board> boardList() {
         return repository.findAll();
     }
-
-    @PostMapping("/boards")
+    @CrossOrigin
+    @PostMapping("/boards/post")
     Board boardWrite(@RequestBody Board boardWrite) {
         return repository.save(boardWrite);
     }
